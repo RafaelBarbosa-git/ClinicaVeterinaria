@@ -16,6 +16,7 @@ public class Animal {
     private Long id;
     @Column(nullable = false, length = 70)
     private String nome;
+    @Transient
     private Tutor tutor;
 
 }
