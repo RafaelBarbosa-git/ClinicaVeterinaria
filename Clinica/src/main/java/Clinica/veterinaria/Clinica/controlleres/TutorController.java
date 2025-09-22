@@ -39,8 +39,6 @@ public class TutorController {
 
         if (tutor.isPresent()) {
             Tutor existingTutor = tutor.get();
-            existingTutor.setNome(tutorDetails.getNome());
-            existingTutor.setEmail(tutorDetails.getEmail());
             Tutor updatedTutor = TutorRepository.save(existingTutor);
             return ResponseEntity.ok(updatedTutor);
         } else {
