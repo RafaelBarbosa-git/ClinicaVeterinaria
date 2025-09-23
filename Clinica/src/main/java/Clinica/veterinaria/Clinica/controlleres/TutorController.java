@@ -14,34 +14,34 @@ import java.util.Optional;
 public class TutorController {
 
     @Autowired
-    private TutorRepository TutorRepository;
+    private TutorRepository tutorRepository;
 
     @GetMapping
     public List<Tutor> getAllTutors() {
-        return TutorRepository.findAll();
+        return tutorRepository.findAll();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Tutor> getTutorById(@PathVariable Long id) {
-        Optional<Tutor> tutor = TutorRepository.findById(id);
+        Optional<Tutor> tutor = tutorRepository.findById(id);
         return tutor.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
     public Tutor createTutor(@RequestBody Tutor tutor) {
-        return TutorRepository.save(tutor);
+        return tutorRepository.save(tutor);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Tutor> updateTutor(@PathVariable Long id, @RequestBody Tutor tutorDetails) {
-        Optional<Tutor> tutor = TutorRepository.findById(id);
+        Optional<Tutor> tutor = tutorRepository.findById(id);
 
         if (tutor.isPresent()) {
             Tutor existingTutor = tutor.get();
             existingTutor.setNome(tutorDetails.getNome());
             existingTutor.setEmail(tutorDetails.getEmail());
-            Tutor updatedTutor = TutorRepository.save(existingTutor);
+            Tutor updatedTutor = tutorRepository.save(existingTutor);
             return ResponseEntity.ok(updatedTutor);
         } else {
             return ResponseEntity.notFound().build();
@@ -50,9 +50,9 @@ public class TutorController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTutor(@PathVariable Long id) {
-        Optional<Tutor> tutor = TutorRepository.findById(id);
+        Optional<Tutor> tutor = tutorRepository.findById(id);
         if (tutor.isPresent()) {
-            TutorRepository.delete(tutor.get());
+            tutorRepository.delete(tutor.get());
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();
