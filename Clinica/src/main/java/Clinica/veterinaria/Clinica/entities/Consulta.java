@@ -14,9 +14,12 @@ public class Consulta {
 
     @ManyToOne
     @JoinColumn(name = "veterinario_id")
-
     private Veterinario doutor;
 
     @Column
     private String diagnostico;
+
+    @ManyToOne
+    @JoinColumn(name = "prontuario_id")
+    private Prontuario prontuario;
 }

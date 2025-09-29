@@ -17,4 +17,12 @@ public class Veterinario {
 
     @OneToMany(mappedBy = "doutor", cascade = CascadeType.ALL)
     private List<Consulta> consultas = new ArrayList<Consulta>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "veterinario_especialidades",
+            joinColumns = @JoinColumn(name = "veterinario_id"),
+            inverseJoinColumns = @JoinColumn(name = "especialidade_id")
+    )
+    private List<Especialidade> especialidades;
 }
