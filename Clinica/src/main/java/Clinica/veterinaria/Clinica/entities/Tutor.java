@@ -1,7 +1,6 @@
 package Clinica.veterinaria.Clinica.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,6 +24,6 @@ public class Tutor {
 
     @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
     @JsonBackReference
-    private List<Animal> animais = new ArrayList<Animal>();
+    private List<Clinica.veterinaria.Clinica.entities.Animal> animais = new ArrayList<Clinica.veterinaria.Clinica.entities.Animal>();
 
 }
