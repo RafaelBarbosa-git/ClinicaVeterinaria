@@ -1,0 +1,34 @@
+package com.seuprojeto.consultas.controller;
+
+import com.seuprojeto.consultas.model.Consulta;
+import com.seuprojeto.consultas.service.ConsultaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/consultas")
+public class ConsultaController {
+
+    @Autowired
+    private ConsultaService consultaService;
+
+    // Listar todas as consultas
+    @GetMapping
+    public List<Consulta> listarTodas() {
+        return consultaService.listarTodas();
+    }
+
+    // procurar consSulta por ID
+    @GetMapping("/{id}")
+    public Consulta buscarPorId(@PathVariable Long id) {
+        return consultaService.buscarPorId(id);
+    }
+
+    // Criar nova consulta
+    @PostMapping
+    public Consulta criar(@RequestBody Consulta consulta) {
+        return consultaService.salvar(consulta);
+    }
+}
