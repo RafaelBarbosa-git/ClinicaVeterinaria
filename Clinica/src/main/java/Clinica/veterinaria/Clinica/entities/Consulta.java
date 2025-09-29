@@ -1,13 +1,6 @@
-package clinica.veterinaria.clinica.entities;
+package Clinica.veterinaria.Clinica.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "consultas")
@@ -18,23 +11,23 @@ public class Consulta {
     private Long id;
 
     @Column(nullable = false)
-    private String descricao;
+    private String data; // poderia ser LocalDate, mas vamos deixar String para simplificar
 
     @Column(nullable = false)
-    private String data; // poderia ser LocalDate, mas mantive String por simplicidade
+    private String descricao;
 
     @ManyToOne
     @JoinColumn(name = "veterinario_id")
-    private Veterinario veterinario;
+    private Veterinario doutor;
 
+    // Construtores
     public Consulta() {
-        // construtor vazio obrigatório pelo JPA
     }
 
-    public Consulta(String descricao, String data, Veterinario veterinario) {
-        this.descricao = descricao;
+    public Consulta(String data, String descricao, Veterinario doutor) {
         this.data = data;
-        this.veterinario = veterinario;
+        this.descricao = descricao;
+        this.doutor = doutor;
     }
 
     // Getters e Setters
@@ -46,14 +39,6 @@ public class Consulta {
         this.id = id;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
     public String getData() {
         return data;
     }
@@ -62,11 +47,19 @@ public class Consulta {
         this.data = data;
     }
 
-    public Veterinario getVeterinario() {
-        return veterinario;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setVeterinario(Veterinario veterinario) {
-        this.veterinario = veterinario;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Veterinario getDoutor() {
+        return doutor;
+    }
+
+    public void setDoutor(Veterinario doutor) {
+        this.doutor = doutor;
     }
 }

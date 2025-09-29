@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/Clinica/Clinica.iml" filepath="$PROJECT_DIR$/Clinica/Clinica.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/projeto veterinário.iml" filepath="$PROJECT_DIR$/.idea/projeto veterinário.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/ClinicaVeterinaria.iml" filepath="$PROJECT_DIR$/.idea/ClinicaVeterinaria.iml" />
+>>>>>>> origin/main
     </modules>
   </component>
 </project>

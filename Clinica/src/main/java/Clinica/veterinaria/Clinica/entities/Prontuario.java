@@ -3,6 +3,8 @@ package Clinica.veterinaria.Clinica.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Table(name = "prontuarios")
 @Data
@@ -12,13 +14,15 @@ public class Prontuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private String historico;
+    @OneToOne
+    @JoinColumn(name = "animal_id", unique = true)
+    private Animal animal;
+
+    @OneToMany(mappedBy = "prontuario")
+    private List<Consulta> consultas;
 
     @Column
     private String descricao;
 
-    @OneToOne
-    @JoinColumn(name = "animal_id", unique = true)
-    private Animal animal;
+
 }
