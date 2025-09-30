@@ -1,6 +1,6 @@
-package Clinica.veterinaria.Clinica.repositories;
+package clinica.veterinaria.clinica.repositories;
 
-import Clinica.veterinaria.Clinica.entities.Tutor;
+import clinica.veterinaria.clinica.entities.Tutor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
