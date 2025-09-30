@@ -23,6 +23,10 @@ public class Consulta {
     private Veterinario doutor;
 
     @ManyToOne
+    @JoinColumn(name = "consultas_id")
+    private Animal animal;
+
+    @ManyToOne
     @JoinColumn (name = "consultas_id")
     private Prontuario prontuario;
 }

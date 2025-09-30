@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Table(name = "animais")
 @Data
@@ -31,5 +33,7 @@ public class Animal {
     @OneToOne(mappedBy = "animal", cascade = CascadeType.ALL)
     private Prontuario prontuario;
 
+    @OneToMany(mappedBy = "animal")
+    private List<Consulta> consultas;
 
 }

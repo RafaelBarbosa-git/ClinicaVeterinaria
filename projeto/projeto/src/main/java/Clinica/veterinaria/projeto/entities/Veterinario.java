@@ -16,9 +16,6 @@ public class Veterinario {
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false, unique = true)
-    private String crmv;
-
     @OneToMany(mappedBy = "doutor", cascade = CascadeType.ALL)
     private List<Consulta> consultas;
 

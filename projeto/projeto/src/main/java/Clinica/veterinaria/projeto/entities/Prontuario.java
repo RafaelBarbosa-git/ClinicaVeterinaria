@@ -18,7 +18,11 @@ public class Prontuario {
     @JoinColumn(name = "animal_id", unique = true)
     private Animal animal;
 
-    @OneToMany(mappedBy = "prontuario")
+    @ManyToOne
+    @JoinColumn(name = "prontuario_id")
+    private Tutor tutor;
+
+    @OneToMany(mappedBy = "prontuario", cascade = CascadeType.ALL)
     private List<Consulta> consultas;
 
     @Column
