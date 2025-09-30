@@ -1,4 +1,4 @@
-package clinica.veterinaria.clinica.entities;
+package Clinica.veterinaria.Clinica.entities;
 
 import jakarta.persistence.*;
 import java.util.List;
