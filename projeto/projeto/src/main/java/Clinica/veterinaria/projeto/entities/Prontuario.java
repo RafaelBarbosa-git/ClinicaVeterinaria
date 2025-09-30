@@ -19,7 +19,7 @@ public class Prontuario {
     private Animal animal;
 
     @ManyToOne
-    @JoinColumn(name = "prontuario_id")
+    @JoinColumn(name = "tutor_id")
     private Tutor tutor;
 
     @OneToMany(mappedBy = "prontuario", cascade = CascadeType.ALL)

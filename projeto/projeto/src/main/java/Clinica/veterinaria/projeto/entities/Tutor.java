@@ -24,9 +24,9 @@ public class Tutor {
 
     @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
     @JsonBackReference
-    private List<Animal> animais = new ArrayList<Animal>();
+    private List<Animal> animais = new ArrayList<>();
 
     @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
-    private List<Prontuario> prontuarios;
+    private List<Prontuario> prontuarios = new ArrayList<>();
 
 }
