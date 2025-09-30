@@ -26,7 +26,6 @@ public class Consulta {
 
     @ManyToOne
     @JoinColumn(name = "animal_id")
-    @JsonIgnore
     private Animal animal;
 
     @ManyToOne
