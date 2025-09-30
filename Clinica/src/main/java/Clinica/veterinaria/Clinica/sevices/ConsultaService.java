@@ -1,4 +1,4 @@
-package Clinica.veterinaria.Clinica.services;
+package Clinica.veterinaria.Clinica.sevices;
 
 import Clinica.veterinaria.Clinica.entities.Consulta;
 import Clinica.veterinaria.Clinica.repositories.ConsultaRepository;
@@ -14,8 +14,8 @@ public class ConsultaService {
     private ConsultaRepository consultaRepository;
 
     // Cadastrar nova consulta
-    public Consulta cadastrarConsulta(Consulta consulta) {
-        return consultaRepository.save(consulta);
+    public Consulta cadastrarConsulta(Consulta cadastrarConsulta) {
+        return consultaRepository.save(cadastrarConsulta);
     }
 
     // Buscar consulta por ID
@@ -37,9 +37,9 @@ public class ConsultaService {
     public Consulta atualizarConsulta(Long id, Consulta consultaAtualizada) {
         Consulta consulta = consultaRepository.findById(id).orElse(null);
         if (consulta != null) {
-            consulta.setDescricao(consultaAtualizada.getDescricao());
+            consulta.setDiagnostico(consultaAtualizada.getDiagnostico());
             consulta.setData(consultaAtualizada.getData());
-            consulta.setVeterinario(consultaAtualizada.getVeterinario());
+            consulta.setDoutor(consultaAtualizada.getDoutor());
             return consultaRepository.save(consulta);
         }
         return null;
