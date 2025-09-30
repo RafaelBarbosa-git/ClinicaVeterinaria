@@ -1,5 +1,6 @@
 package Clinica.veterinaria.projeto.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,9 +21,11 @@ public class Prontuario {
 
     @ManyToOne
     @JoinColumn(name = "tutor_id")
+    @JsonIgnore
     private Tutor tutor;
 
     @OneToMany(mappedBy = "prontuario", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Consulta> consultas;
 
     @Column

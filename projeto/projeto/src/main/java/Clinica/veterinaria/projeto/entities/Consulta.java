@@ -1,5 +1,6 @@
 package Clinica.veterinaria.projeto.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,13 +21,16 @@ public class Consulta {
 
     @ManyToOne
     @JoinColumn(name = "veterinario_id")
+    @JsonIgnore
     private Veterinario doutor;
 
     @ManyToOne
     @JoinColumn(name = "animal_id")
+    @JsonIgnore
     private Animal animal;
 
     @ManyToOne
     @JoinColumn (name = "prontuario_id")
+    @JsonIgnore
     private Prontuario prontuario;
 }

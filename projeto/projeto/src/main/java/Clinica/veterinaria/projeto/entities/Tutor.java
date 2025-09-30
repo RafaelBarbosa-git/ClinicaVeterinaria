@@ -24,10 +24,11 @@ public class Tutor {
     private String email;
 
     @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
-    @JsonIgnore
+    @JsonBackReference
     private List<Animal> animais = new ArrayList<>();
 
     @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Prontuario> prontuarios = new ArrayList<>();
 
 }

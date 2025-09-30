@@ -1,5 +1,6 @@
 package Clinica.veterinaria.projeto.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,6 +20,7 @@ public class Veterinario {
     private String nome;
 
     @OneToMany(mappedBy = "doutor", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Consulta> consultas;
 
     @ManyToMany

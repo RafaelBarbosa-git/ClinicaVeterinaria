@@ -1,5 +1,6 @@
 package Clinica.veterinaria.projeto.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,5 +19,6 @@ public class Especialidade {
     private String nomeEspecialidade;
 
     @ManyToMany(mappedBy = "especialidades")
+    @JsonIgnore
     private List<Veterinario> veterinarios;
 }
