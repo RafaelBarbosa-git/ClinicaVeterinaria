@@ -27,7 +27,6 @@ public class Animal {
 
     @ManyToOne
     @JoinColumn (name = "tutor_id")
-    @JsonManagedReference
     private Tutor tutor;
 
     @OneToOne(mappedBy = "animal", cascade = CascadeType.ALL)

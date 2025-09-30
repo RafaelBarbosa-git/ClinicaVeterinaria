@@ -1,6 +1,7 @@
 package Clinica.veterinaria.projeto.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -23,7 +24,7 @@ public class Tutor {
     private String email;
 
     @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
-    @JsonBackReference
+    @JsonIgnore
     private List<Animal> animais = new ArrayList<>();
 
     @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)

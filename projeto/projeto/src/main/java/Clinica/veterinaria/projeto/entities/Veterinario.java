@@ -1,12 +1,14 @@
 package Clinica.veterinaria.projeto.entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "veterinarios")
+@Data
 public class Veterinario {
 
     @Id
